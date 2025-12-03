@@ -8,9 +8,13 @@ const playerSchema = new mongoose.Schema({
 
 const teamSchema = new mongoose.Schema({
   teamName: String,
+  region: String,               
   players: [playerSchema],
   championships: [String],
-  createdAt: { type: Date, default: Date.now }
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 export default mongoose.model("Team", teamSchema);
