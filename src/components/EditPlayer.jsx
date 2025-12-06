@@ -23,7 +23,10 @@ export default function EditPlayer() {
 
     const updatedPlayer = {
       age: Number(age),
-      signatureAgentsPlayed: agents.split(",").map(a => a.trim())
+      signatureAgentsPlayed: agents
+        .split(",")
+        .map(a => a.trim())
+        .filter(a => a !== "")
     };
 
     api.put(`/teams/${teamId}/players/${playerId}`, updatedPlayer)
@@ -34,30 +37,32 @@ export default function EditPlayer() {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="form-container">
       <h2>Edit Player</h2>
 
       <form onSubmit={handleSubmit}>
+
         <div className="mb-3">
           <label>Age</label>
-          <input 
+          <input
             type="number"
             className="form-control"
             value={age}
-            onChange={e => setAge(e.target.value)}
+            onChange={(e) => setAge(e.target.value)}
           />
         </div>
 
         <div className="mb-3">
           <label>Signature Agents (comma separated)</label>
-          <input 
+          <input
             className="form-control"
             value={agents}
-            onChange={e => setAgents(e.target.value)}
+            onChange={(e) => setAgents(e.target.value)}
+            placeholder="e.g. Jett, Reyna, Killjoy"
           />
         </div>
 
-        <button className="btn btn-primary">Save Changes</button>
+        <button className="vteam-btn">Save Changes</button>
       </form>
     </div>
   );

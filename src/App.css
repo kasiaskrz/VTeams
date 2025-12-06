@@ -261,3 +261,26 @@ footer {
     color: #444444 !important;
     opacity: 1;
 }
+
+.profile-card {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  text-align: center;
+}
+
+.profile-name {
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}

@@ -26,7 +26,10 @@ export default function EditTeam() {
         const updatedTeam = {
             teamName,
             region,
-            championships: championships.split(",").map(c => c.trim())
+            championships: championships
+                .split(",")
+                .map(c => c.trim())
+                .filter(c => c !== "")
         };
 
         api.put(`/teams/${id}`, updatedTeam)
@@ -38,7 +41,7 @@ export default function EditTeam() {
     };
 
     return (
-        <div className="container mt-4">
+        <div className="form-container">
             <h2>Edit Team</h2>
 
             <form onSubmit={handleSubmit}>
@@ -71,7 +74,7 @@ export default function EditTeam() {
                     />
                 </div>
 
-                <button className="btn btn-primary">Save Changes</button>
+                <button className="vteam-btn">Save Changes</button>
             </form>
         </div>
     );

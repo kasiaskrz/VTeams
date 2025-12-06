@@ -77,7 +77,7 @@ export default function AddTeam() {
           />
         </div>
 
-        <button className="btn btn-primary">Create Team</button>
+        <button className="vteam-btn">Create Team</button>
       </form>
     </div>
   );

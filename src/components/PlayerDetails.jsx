@@ -4,16 +4,17 @@ import api from "../axiosConfig";
 
 export default function PlayerDetails() {
   const { teamId, playerId } = useParams();
-  const [player, setPlayer] = useState(null);
   const navigate = useNavigate();
+
+  const [player, setPlayer] = useState(null);
 
   useEffect(() => {
     api.get(`/teams/${teamId}`)
-      .then((res) => {
-        const found = res.data.players.find(p => p._id === playerId);
-        setPlayer(found);
+      .then(res => {
+        const foundPlayer = res.data.players.find(p => p._id === playerId);
+        setPlayer(foundPlayer);
       })
-      .catch((err) => console.error(err));
+      .catch(err => console.error(err));
   }, [teamId, playerId]);
 
   const handleDelete = () => {
@@ -21,37 +22,36 @@ export default function PlayerDetails() {
 
     api.delete(`/teams/${teamId}/players/${playerId}`)
       .then(() => {
-        alert("Player deleted");
+        alert("Player deleted.");
         navigate(`/teams`);
       })
       .catch(err => console.error(err));
   };
 
-  if (!player) return <p>Loading...</p>;
+  if (!player) return <p className="text-center mt-4">Loading player...</p>;
 
   return (
-    <div className="container mt-4">
-      <h2>{player.name}</h2>
+    <div className="profile-card">
+      <h2 className="profile-name">{player.name}</h2>
 
       <p><strong>Age:</strong> {player.age}</p>
 
       <p>
         <strong>Signature Agents:</strong>{" "}
-        {player.signatureAgentsPlayed.join(", ")}
+        {player.signatureAgentsPlayed?.length > 0
+          ? player.signatureAgentsPlayed.join(", ")
+          : "None"}
       </p>
 
-      <div className="d-flex gap-2 mt-3">
-        <Link 
-          to={`/teams/${teamId}/players/${playerId}/edit`}
+      <div className="profile-actions">
+        <Link
           className="btn btn-warning"
+          to={`/teams/${teamId}/players/${playerId}/edit`}
         >
           Edit Player
         </Link>
 
-        <button
-          className="btn btn-danger"
-          onClick={handleDelete}
-        >
+        <button className="btn btn-danger" onClick={handleDelete}>
           Delete Player
         </button>
       </div>
