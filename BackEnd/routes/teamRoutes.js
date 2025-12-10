@@ -3,13 +3,11 @@ import Team from "../models/Team.js";
 
 const router = express.Router();
 
-// GET all teams
 router.get("/", async (req, res) => {
   const teams = await Team.find();
   res.json(teams);
 });
 
-// GET single team by ID
 router.get("/:id", async (req, res) => {
   try {
     const team = await Team.findById(req.params.id);
@@ -19,13 +17,11 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// POST create new team
 router.post("/", async (req, res) => {
   const team = await Team.create(req.body);
   res.json(team);
 });
 
-// POST add player to team (max 5 players)
 router.post("/:id/players", async (req, res) => {
   try {
     const team = await Team.findById(req.params.id);
@@ -44,7 +40,6 @@ router.post("/:id/players", async (req, res) => {
   }
 });
 
-// PUT update team
 router.put("/:id", async (req, res) => {
   const updated = await Team.findByIdAndUpdate(
     req.params.id,
@@ -54,13 +49,11 @@ router.put("/:id", async (req, res) => {
   res.json(updated);
 });
 
-// DELETE team
 router.delete("/:id", async (req, res) => {
   await Team.findByIdAndDelete(req.params.id);
   res.json({ message: "Team deleted" });
 });
 
-// DELETE a player
 router.delete("/:teamId/players/:playerId", async (req, res) => {
   try {
     const team = await Team.findById(req.params.teamId);
@@ -77,7 +70,6 @@ router.delete("/:teamId/players/:playerId", async (req, res) => {
   }
 });
 
-// UPDATE a player
 router.put("/:teamId/players/:playerId", async (req, res) => {
   try {
     const team = await Team.findById(req.params.teamId);

@@ -8,19 +8,15 @@ dotenv.config();
 
 const app = express();
 
-// middlewares
 app.use(cors());
 app.use(express.json());
 
-// connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log("MongoDB error:", err));
 
-// routes
 app.use("/teams", teamRoutes);
 
-// start server
 app.listen(4000, () => {
   console.log("Server running on port 4000");
 });

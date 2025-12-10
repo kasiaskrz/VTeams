@@ -12,7 +12,6 @@ export default function NavigationBar() {
     >
       <Container>
 
-        {/* LOGO */}
         <Navbar.Brand as={Link} to="/">
           <img
             src="/src/assets/Logo_white.ver.png"
@@ -21,7 +20,6 @@ export default function NavigationBar() {
           />
         </Navbar.Brand>
 
-        {/* Hamburger icon appears here */}
         <Navbar.Toggle aria-controls="main-navbar" />
 
         <Navbar.Collapse id="main-navbar">

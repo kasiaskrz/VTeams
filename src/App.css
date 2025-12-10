@@ -111,24 +111,20 @@ footer {
     color: #ff7777;
 }
 
-/* NAVBAR BACKGROUND */
 .vteam-navbar {
     background-color: #000 !important;
     padding: 10px 0;
 }
 
-/* Make all navbar text use your special font */
 .vteam-navbar,
 .vteam-navbar * {
     font-family: "Science Gothic", sans-serif !important;
 }
 
-/* Logo size */
 .navbar-logo {
     height: 60px;
 }
 
-/* White nav links */
 .vteam-navbar .nav-link {
     color: white !important;
     font-weight: 400;
@@ -140,12 +136,10 @@ footer {
     transition: 0.2s;
 }
 
-/* Hamburger icon color */
 .navbar-toggler {
     border-color: #fff !important;
 }
 
-/* Center all team cards */
 .team-cards {
     display: flex;
     flex-wrap: wrap;
@@ -153,7 +147,6 @@ footer {
     gap: 20px;
 }
 
-/* Each team card */
 .team-card {
     width: 320px;
     text-align: center;
@@ -163,25 +156,18 @@ footer {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover effect */
 .team-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 16px rgba(255, 0, 0, 0.3);
 }
 
-/* Center the whole list */
 .team-card ul {
     list-style-position: inside;
-    /* bullets move closer to the text */
     padding-left: 0;
-    /* remove big default padding */
     margin: 0 auto;
-    /* center the list block */
     text-align: center;
-    /* center the text itself */
 }
 
-/* Optional: adjust spacing */
 .team-card li {
     margin: 3px 0;
 }
@@ -196,7 +182,6 @@ footer {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.25);
 }
 
-/* Title styling for consistency */
 .form-container h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -204,7 +189,6 @@ footer {
     color: #fff;
 }
 
-/* Input styling */
 .form-container .form-control {
     background-color: #1a1a1a;
     border: 1px solid #444;
@@ -216,13 +200,11 @@ footer {
     box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
 }
 
-/* Buttons consistent */
 .form-container button {
     width: 100%;
     margin-top: 10px;
 }
 
-/* Labels */
 .form-container label {
     font-weight: 600;
     color: #ddd;
@@ -285,12 +267,9 @@ footer {
     margin-top: 20px;
 }
 
-/* Base small button */
 .vteam-btn {
     padding: 4px 10px;
-    /* same size as Bootstrap btn-sm */
     font-size: 0.8rem;
-    /* same size as before */
     border-radius: 4px;
     border: 1px solid transparent;
     font-weight: 600;
@@ -300,7 +279,6 @@ footer {
     letter-spacing: 0.5px;
 }
 
-/* Valorant red */
 .vteam-btn-primary {
     background-color: #ff4655;
     color: white;
@@ -310,7 +288,6 @@ footer {
     background-color: #e03a48;
 }
 
-/* Neutral gray (edit, misc) */
 .vteam-btn-secondary {
     background-color: #1f1f1f;
     color: white;
@@ -320,7 +297,6 @@ footer {
     background-color: #2a2a2a;
 }
 
-/* Danger red */
 .vteam-btn-danger {
     background-color: #a32024;
     color: white;
@@ -330,12 +306,56 @@ footer {
     background-color: #8b1b1e;
 }
 
-/* Container for grouping buttons */
 .btn-row {
     display: flex;
     justify-content: center;
     gap: 8px;
-    /* same spacing as Bootstrap */
     margin-top: 10px;
 }
 
+.team-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: 0.2s ease;
+    color: white;
+}
+
+.action-btn.add {
+    background: #27ae60;
+}
+
+.action-btn.edit {
+    background: #333;
+}
+
+.action-btn.delete {
+    background: #d1363a;
+}
+
+.action-btn:hover {
+    opacity: 0.85;
+}
+
+.action-btn.disabled {
+    background: #777;
+    cursor: not-allowed;
+}
+
+.action-btn i {
+    font-size: 1rem;
+}

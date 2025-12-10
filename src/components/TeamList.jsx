@@ -26,7 +26,6 @@ export default function TeamList() {
     <div className="container mt-4 text-center">
       <h2 className="mb-4">Teams</h2>
 
-      {/* WRAPPER FOR CENTERING CARDS */}
       <div className="team-cards">
         {teams.map(team => (
           <div
@@ -34,7 +33,6 @@ export default function TeamList() {
             className="team-card border rounded p-3 shadow-sm"
           >
 
-            {/* TEAM LOGO */}
             <img
               src={
                 team.logoUrl && team.logoUrl.trim() !== ""
@@ -83,36 +81,31 @@ export default function TeamList() {
               )}
             </div>
 
-            <div className="d-flex gap-2 mt-3 justify-content-center">
+            <div className="team-actions">
 
               {team.players.length < 5 ? (
-                <Link
-                  className="btn btn-success btn-sm"
-                  to={`/teams/${team._id}/players/add`}
-                >
-                  Add Player
+                <Link className="action-btn add" to={`/teams/${team._id}/players/add`}>
+                  <i className="fas fa-user-plus"></i> Add
                 </Link>
               ) : (
-                <button className="btn btn-secondary btn-sm" disabled>
-                  Team Full (5/5)
+                <button className="action-btn disabled" disabled>
+                  <i className="fas fa-ban"></i> Full
                 </button>
               )}
 
-              <Link
-                className="btn btn-warning btn-sm"
-                to={`/edit/${team._id}`}
-              >
-                Edit Team
+              <Link className="action-btn edit" to={`/edit/${team._id}`}>
+                <i className="fas fa-edit"></i> Edit
               </Link>
 
               <button
-                className="btn btn-danger btn-sm"
+                className="action-btn delete"
                 onClick={() => handleDelete(team._id)}
               >
-                Delete Team
+                <i className="fas fa-trash"></i> Delete
               </button>
 
             </div>
+
           </div>
         ))}
       </div>
