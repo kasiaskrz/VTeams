@@ -44,17 +44,23 @@ export default function PlayerDetails() {
       </p>
 
       <div className="profile-actions">
+
         <Link
-          className="btn btn-warning"
+          className="action-btn edit"
           to={`/teams/${teamId}/players/${playerId}/edit`}
         >
-          Edit Player
+          <i className="fas fa-edit"></i> Edit
         </Link>
 
-        <button className="btn btn-danger" onClick={handleDelete}>
-          Delete Player
+        <button
+          className="action-btn delete"
+          onClick={handleDelete}
+        >
+          <i className="fas fa-trash"></i> Delete
         </button>
+
       </div>
+
     </div>
   );
 }
